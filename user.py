@@ -28,6 +28,9 @@ class User():
     def getRole(self):
         return self.__role
     
+    def enroll():
+        #check capacity, check course, check course prereqs
+        pass
 
 class Administrator(User):
     def __init__(self, id, username, name, designation, department, role):
@@ -37,7 +40,7 @@ class Administrator(User):
         pass
     def createClass(self):
         pass
-    def enrollLearners(self):
+    def enroll(self):
         pass
 
 
@@ -45,7 +48,7 @@ class Learners(User):
     def __init__(self, id, username, name, designation, department, role):
         User.__init__(self,id, username, name, designation, department, role)
     
-    def enrollClass(self):
+    def enroll(self):
         pass
 
 class Trainers(User):
