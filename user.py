@@ -1,6 +1,6 @@
 class User():
 
-    __user_id = None
+    __user_id = 0
     __user_name = None
     __name = None
     __designation = None
@@ -15,6 +15,7 @@ class User():
         self.__department = department
         self.__role = role
 
+    #Getter Methods
     def getId(self):
         return self.__user_id
     def getUserName(self):
@@ -27,19 +28,32 @@ class User():
         return self.__department
     def getRole(self):
         return self.__role
-    
-    def enroll():
+
+    #Setter Methods
+    def setUserName(self, username):
+        self.__user_name = username
+        return self.__user_name
+    def getName(self, name):
+        self.__name = name
+        return self.__name
+    def getDesignation(self, designation):
+        self.__designation = designation
+        return self.__designation
+    def getDepartment(self, department):
+        self.__department = department
+        return self.__department
+    def getRole(self, role):
+        self.__role = role
+        return self.__role
+
+
+    def enroll(self):
         #check capacity, check course, check course prereqs
         pass
 
 class Administrator(User):
     def __init__(self, id, username, name, designation, department, role):
         User.__init__(self,id, username, name, designation, department, role)
-    
-    def createCourse(self):
-        pass
-    def createClass(self):
-        pass
     def enroll(self):
         pass
 
@@ -47,13 +61,9 @@ class Administrator(User):
 class Learners(User):
     def __init__(self, id, username, name, designation, department, role):
         User.__init__(self,id, username, name, designation, department, role)
-    
     def enroll(self):
         pass
 
 class Trainers(User):
     def __init__(self, id, username, name, designation, department, role):
         User.__init__(self,id, username, name, designation, department, role)
-    
-    def createQuiz(self):
-        pass
