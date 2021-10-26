@@ -80,7 +80,29 @@ CREATE table IF NOT EXISTS 'user'(
 -- Dumping data for table 'User'
 --
 
-INSERT INTO 'user' ('id', 'user_name', 'name', 'designation', 'department', 'role') VALUES
+INSERT INTO 'user' ('user_id', 'user_name', 'name', 'designation', 'department', 'role') VALUES
+(1, 'cuname', 'Claudia', 'Technical boss', 'Tech department', 'Trainers'),
+(2, 'muname', 'Marcus', 'Big Boss', 'HR Department', 'Administrator'),
+(3, 'huname', 'Haziq', 'Learner', 'Engineer', 'Learners');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Course`
+--
+
+DROP TABLE IF EXISTS 'course';
+CREATE table IF NOT EXISTS 'course'(
+    'course_id' INT(11) NOT NULL,
+    'course_name' VARCHAR(50) NOT NULL,
+    'archive_date' DATE NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table 'Course'
+--
+
+INSERT INTO 'course' ('id', 'user_name', 'name', 'designation', 'department', 'role') VALUES
 (1, 'cuname', 'Claudia', 'Technical boss', 'Tech department', 'Trainers'),
 (2, 'muname', 'Marcus', 'Big Boss', 'HR Department', 'Administrator'),
 (3, 'huname', 'Haziq', 'Learner', 'Engineer', 'Learners');
@@ -95,18 +117,6 @@ CREATE table IF NOT EXISTS 'prerequisites'(
     'prereq_course_id' int NOT NULL,
 
     PRIMARY KEY ('prereq_id') 
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
------"Course" table------
-DROP TABLE IF EXISTS 'course';
-CREATE table IF NOT EXISTS 'course'(
-    'course_id' int NOT NULL,
-    'course_name' char(50) NOT NULL,
-    'archive_date' date,
-
-    PRIMARY KEY ('course_id') 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
