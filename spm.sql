@@ -187,3 +187,64 @@ CREATE table 'enrolled_course'(
     'grade' int NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `administrator`
+--
+ALTER TABLE 'administrator'
+  ADD PRIMARY KEY ('user_id');
+
+--
+-- Indexes for table `learners`
+--
+ALTER TABLE 'learners'
+  ADD PRIMARY KEY ('user_id');
+
+--
+-- Indexes for table `trainers`
+--
+ALTER TABLE 'trainers'
+  ADD PRIMARY KEY ('user_id');
+
+--
+-- Indexes for table 'user'`
+--
+ALTER TABLE 'user'
+  ADD PRIMARY KEY ('user_id');
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table 'user'
+--
+ALTER TABLE 'user'
+  MODIFY 'user_id' int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table 'administrator'
+--
+ALTER TABLE 'administrator'
+  ADD CONSTRAINT 'administrator_fk_1' FOREIGN KEY ('user_id') REFERENCES 'user' ('user_id');
+
+--
+-- Constraints for table 'learners'
+--
+ALTER TABLE 'learners'
+  ADD CONSTRAINT 'learners_fk_1' FOREIGN KEY ('user_id') REFERENCES 'user' ('user_id');
+
+--
+-- Constraints for table 'trainers'
+--
+ALTER TABLE 'trainers'
+  ADD CONSTRAINT 'trainers_fk_1' FOREIGN KEY ('user_id') REFERENCES 'user' ('user_id');
