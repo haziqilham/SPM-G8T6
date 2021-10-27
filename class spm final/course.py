@@ -23,3 +23,7 @@ class Course():
     def setArchiveDate(self, date):
         self.__archive_date = date
         return self.__archive_date
+
+    def createCourse(self, id, name, date):
+        course = self.__init__(id, name, date)
+        return course.getId()
