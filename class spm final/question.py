@@ -1,7 +1,5 @@
 from abc import ABC, abstractmethod
 
-from flask.signals import _FakeSignal
-
 class Question(ABC):
     __question_id = 0
     __question = None
