@@ -1,7 +1,7 @@
 import unittest
-from user import Administrator;
-from user import Trainers;
-from user import Learners;
+from administrator import Administrator;
+from trainer import Trainers;
+from learners import Learners;
 
 class testUser(unittest.TestCase):
     def setUp(self):

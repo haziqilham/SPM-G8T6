@@ -51,19 +51,3 @@ class User():
         #check capacity, check course, check course prereqs
         pass
 
-class Administrator(User):
-    def __init__(self, id, username, name, designation, department, role):
-        User.__init__(self,id, username, name, designation, department, role)
-    def enroll(self):
-        pass
-
-
-class Learners(User):
-    def __init__(self, id, username, name, designation, department, role):
-        User.__init__(self,id, username, name, designation, department, role)
-    def enroll(self):
-        pass
-
-class Trainers(User):
-    def __init__(self, id, username, name, designation, department, role):
-        User.__init__(self,id, username, name, designation, department, role)
