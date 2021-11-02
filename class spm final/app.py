@@ -175,9 +175,26 @@ class Quiz(db.Model):
             result[column] = getattr(self, column)
         return result
 
-    def computeScore(self):
-        pass
+    def computeScore(self, answerdict):
+        marks = 0
+        for key, value in answerdict.items():
+            questionid = key
+            answer = value
+            marks += Question.computeMarks(questionid, answer)
+        return marks
 
+    def passCourse(self, answerdict, userid):
+        marks = self.computeScore(answerdict)
+        if marks >= self.passing_mark:
+            chapterinfo = Chapter.query.filter_by(chapter_id = self.chapter_id).first()
+            classid = chapterinfo.class_id
+            usercourse = CourseProgression.query.filter_by(user_id = userid, class_id = classid).first()
+            usercourse.status = 'completed'
+            usercourse.completion_date = dt.date.today()
+            usercourse.score = marks
+        else:
+            raise Exception("You have failed the course.")
+        
 class Question(db.Model):
     __tablename__ = 'question'
 
@@ -193,11 +210,11 @@ class Question(db.Model):
             result[column] = getattr(self, column)
         return result
     
-    def computeMarks(self, answer):
+    def computeMarks(self, questionid, answer):
         if answer == True or answer == False:
-            correctans = Questiontf.correctanswer(self.question_id)
+            correctans = Questiontf.correctanswer(questionid)
         else:
-            correctans = Questionmcq.correctanswer(self.question_id)
+            correctans = Questionmcq.correctanswer(questionid)
         
         if correctans == answer:
             return self.marks
@@ -273,4 +290,5 @@ class CourseProgression(db.Model):
             result[column] = getattr(self, column)
         return result
     
+
 
