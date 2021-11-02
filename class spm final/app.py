@@ -134,7 +134,7 @@ class Class(db.Model):
         return result
 
     #check if the class is full
-    def checkCapacity(classid):
+    def checkCapacity(self, classid):
         enrolled = CourseProgression.query.filter_by(class_id = classid, status = "enrolled").all()
         classinfo = Class.query.filter_by(class_id = classid).first()
         if len(enrolled) < classinfo.capacity:
